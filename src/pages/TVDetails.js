@@ -15,7 +15,7 @@ const TVDetails = () => {
   const { data: tvDetails, loading: detailsLoading, error: detailsError } = useApiData(tvDetailsEndpoint(id));
   const { data: trailerVideos, loading: videosLoading, error: videosError } = useApiData(tvVideosEndpoint(id));
   const { data: credits, loading: creditsLoading, error: creditsError } = useApiData(tvCreditsEndpoint(id));
-  const { data: recommendations, loading: recommendationsLoading, error: recommendationsError } = useApiData(seriesRecommendationsEndpoint(id));
+  const { data: recommendations  } = useApiData(seriesRecommendationsEndpoint(id));
  
   const [officialTrailers, setOfficialTrailers] = useState([]);
 
@@ -39,7 +39,7 @@ const TVDetails = () => {
 
   const selectRecommendations = recommendations && recommendations.results && recommendations.results.slice(0, 8);
 
-  const { name, overview, poster_path, first_air_date, episode_run_time, number_of_episodes, spoken_languages, backdrop_path, genres } = tvDetails;
+  const { name, overview, poster_path, first_air_date, episode_run_time, spoken_languages, backdrop_path, genres } = tvDetails;
   const { cast, crew } = credits;
 
   const releaseYear = new Date(first_air_date).getFullYear();

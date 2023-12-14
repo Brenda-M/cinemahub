@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CardSkeleton from "../components/CardSkeleton";
-// import { Pagination } from "react-bootstrap";
+import Pagination from "../components/Pagination";
 import { discoverTvShowsEndpoint } from "../endpoints";
 import useApiData from "../hooks/useApiData";
 import Genre from "../components/Genre";
@@ -46,14 +46,9 @@ const TV = () => {
               <MediaCard {...show}/>
             </div>
           ))}
+          <Pagination onLoadMore={() => handlePageChange(page + 1)} />
         </div>
 
-        
-        {/* <Pagination className="my-3 d-flex justify-content-between align-items-center"> 
-        <Pagination.Prev onClick={() => handlePageChange(page - 1)} className='px-3 py-1 m-1 text-center btn-primary'/>
-        <Pagination.Item active>{page}</Pagination.Item>
-        <Pagination.Next onClick={() => handlePageChange(page + 1)} className='px-3 py-1 m-1 text-center btn-primary'/>
-      </Pagination> */}
       </div>
     </div>
   );

@@ -5,8 +5,8 @@ module.exports = {
   ],
   theme: {
     extend: {
-      gridTemplateRows: {
-        '8': 'repeat(8, minmax(150px, 1fr))',
+      boxShadow: {
+        '3xl': '0 35px 30px -15px rgba(0, 0, 0, 0.6)',
       }
     },
   },

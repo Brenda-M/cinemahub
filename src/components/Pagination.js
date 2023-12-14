@@ -1,31 +1,22 @@
-import React, { useState } from 'react';
+import React from "react";
 
-const Pagination = () => {
-  const [page, setPage] = useState(1);
-
-  const handlePrevious = () => {
-    if (page > 1) {
-      setPage(page - 1);
-    }
-  };
-   
-  const handleNext = () => {
-    if (page < 10) {
-      setPage(page + 1);
-    }
-  };
-
+const Pagination = ({ onLoadMore }) => {
   return (
-    <div className="my-3 d-flex justify-content-between align-items-center">
-      <button className="px-3 py-1 m-1 text-center btn-primary" onClick={handlePrevious}>
-        Previous
-      </button>
-      <span>Page {page}</span>
-      <button className="px-3 py-1 m-1 text-center btn-primary" onClick={handleNext}>
-        Next
-      </button>
+    <div className="relative rounded shadow-3xl transform transition duration-300 hover:scale-105 hover:border-solid hover:border-2 hover:border-white"
+    style={{
+      maxWidth: "100%",
+      width: "140px",
+      height: "196px"
+    }}
+    >
+      <div className="flex items-center justify-center h-full">
+        <button className="text-gray-600 px-4 py-2" onClick={onLoadMore}>
+          Load More
+        </button>
+      </div>
     </div>
   );
-}
+};
 
 export default Pagination;
+

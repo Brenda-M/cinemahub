@@ -3,8 +3,6 @@ import useApiData from "../hooks/useApiData";
 import CardSkeleton from "../components/CardSkeleton";
 import HomeCard from "../components/HomeCard";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleRight, faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -32,25 +30,7 @@ const Home = () => {
   const { data: topRatedMovies, loading: topRatedMoviesLoading, error: topRatedMoviesError } = useApiData(topRatedMoviesEndpoint);
   const { data: upcomingMovies, loading: upcomingMoviesLoading, error: upcomingMoviesError } = useApiData(upcomingMoviesEndpoint);
 
-  const NextArrow = ({ className, style, onClick }) => (
-    <div
-      className={`rounded-circle bg-primary text-light flex items-center justify-center ${className}`}
-      style={{ ...style, padding: "10px" }}
-      onClick={onClick}
-    >
-      <FontAwesomeIcon icon={faArrowCircleRight} />
-    </div>
-  );
 
-  const PrevArrow = ({ className, style, onClick }) => (
-    <div
-      className={`rounded-circle bg-primary text-light flex items-center justify-center ${className}`}
-      style={{ ...style, padding: "10px" }}
-      onClick={onClick}
-    >
-      <FontAwesomeIcon icon={faArrowCircleLeft} />
-    </div>
-  );
 
   if (trendingLoading || topRatedMoviesLoading || onTheAirTvLoading || nowPlayingMoviesLoading || topRatedTvLoading || airingTodayTvLoading || popularTvLoading || popularMoviesLoading || upcomingMoviesLoading) {
     return (

@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 
 const Genre = ({ genre, setGenre, setPage, type, value, setValue }) => {
-  const fetchGenre = async () => {
+  const fetchGenre = useCallback(async () => {
     try {
       const response = await fetch(
         `https://api.themoviedb.org/3/genre/${type}/list?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US`
@@ -11,7 +11,7 @@ const Genre = ({ genre, setGenre, setPage, type, value, setValue }) => {
     } catch (error) {
       console.error("Error fetching genres:", error);
     }
-  };
+  }, [type, setGenre]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,7 +19,7 @@ const Genre = ({ genre, setGenre, setPage, type, value, setValue }) => {
     };
 
     fetchData();
-  }, [setGenre]);
+  }, [fetchGenre, setGenre, type]); // Include type in the dependency array
 
   const categoryRemove = (genres) => {
     setValue(value.filter((g) => g.id !== genres.id));
