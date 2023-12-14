@@ -1,38 +1,117 @@
-.App {
-  text-align: center;
+
+/* body{
+  background: #202C37;
+} */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hero-section img {
+  max-height: 500px;
+  width: 100%;
+  object-fit: cover;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.movie-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-auto-rows: auto;
+  gap: 1.5em 0em;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  /* padding-top: 3rem; */
+  padding-bottom: 3rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card-info{
+  width:140px;
   display: flex;
   flex-direction: column;
+}
+
+.card-extra-info{
+  display: flex;
+  justify-content: space-between;
+}
+
+.title{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+/* .card-details{
+  max-height: 2em;
+}
+
+.card-info{
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 1rem auto;
+} */
+
+/* display: inline-block;
+margin: 10px;
+float: left;
+width: 134px;
+font-size: 0.8em; */
+
+.title {
+  max-width: 8rem; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.App-link {
-  color: #61dafb;
+.card-info{
+  display: flex;
+  justify-content: space-between;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+img{
+  width: 100%;
+  object-fit: contain;
 }
+
+
+.underlined {
+  /*   background: red; */
+    position: relative;
+  }
+  
+  .underline-mask:after {
+    content: '';
+    position: absolute;
+    top: 95%;
+    width: 150%;
+    aspect-ratio: 3 / 1;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 50%;
+    border: 6px solid hsl(280 80% 50%);
+    /* Use a conic gradient mask to hide and show the bits you want */
+    --spread: 140deg;
+    --start: 290deg;
+    mask: conic-gradient(from var(--start), white 0 var(--spread), transparent var(--spread));
+  }
+
+  /* Add this CSS in your stylesheet or inline style */
+
+.home-title::after {
+  content: ''; 
+  display: block;
+  width: 50px;
+  height: 2px;
+  background-color: hsl(280 80% 50%);
+  margin-top: 8px; 
+}
+

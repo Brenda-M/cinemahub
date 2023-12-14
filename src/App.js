@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import './App.css'
+import Layout from "./layouts/AppLayout";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './pages/Home'
+import Movies from "./pages/Movies";
+import TV from "./pages/TV";
+import Search from "./pages/Search";
+import MovieDetails from "./pages/MovieDetails";
+import SearchResults from "./pages/SearchResults";
+import Error from "./pages/Error";
+import TVDetails from "./pages/TVDetails";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} exact />
+            <Route path="/movies" element={<Movies />} />
+            <Route path="/tv" element={<TV />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="*" element={<Error />} />
+            <Route path="/movie/:id" element={<MovieDetails/>} />
+            <Route path="/Tv/:id" element={<TVDetails/>} />
+            <Route path="/search-results" element={<SearchResults />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </>
   );
-}
+};
 
 export default App;
