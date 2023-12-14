@@ -22,11 +22,12 @@ const App = () => {
             <Route path="/movies" element={<Movies />} />
             <Route path="/tv" element={<TV />} />
             <Route path="/search" element={<Search />} />
-            <Route path="*" element={<Error />} />
-            <Route path="/movie/:id" element={<MovieDetails/>} />
-            <Route path="/Tv/:id" element={<TVDetails/>} />
+            <Route path="/movie/:id" element={<MovieDetails />} />
+            <Route path="/Tv/:id" element={<TVDetails />} />
             <Route path="/search-results" element={<SearchResults />} />
+            <Route path="/error" element={<Error />} />
           </Routes>
+
         </Layout>
       </BrowserRouter>
     </>
