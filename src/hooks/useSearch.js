@@ -46,7 +46,7 @@ const useSearch = (searchText, page, genreId) => {
   useEffect(() => {
     const fetchSearch = async () => {
       try {
-        const genreQuery = genreId ? `&with_genres=${genreId}` : ''; // Include genre filter if provided
+        const genreQuery = genreId ? `&with_genres=${genreId}` : '';
 
         const data = await fetch(
           `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false${genreQuery}`

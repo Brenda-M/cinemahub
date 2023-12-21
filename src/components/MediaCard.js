@@ -2,15 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { img_300, unavailable } from "../components/config";
 
-const MediaCard = ({ id, poster_path, title, name,  release_date, first_air_date, }) => {
+const MediaCard = ({ id, poster_path, title, name, release_date, first_air_date, onClick }) => {
   const mediaType = title ? "Movie" : "Tv";
   const mediaDetailsPath = mediaType === "Tv" ? `/tv/${id}` : `/movie/${id}`;
 
   const releaseYear = new Date(release_date).getFullYear();
   const firstAirDate = new Date(first_air_date).getFullYear();
 
+  const handleCardClick = () => {
+    if (onClick) {
+      console.log("Card clicked!");
+      onClick();
+    }
+  };
+
   return (
-    <Link to={mediaDetailsPath}>
+    <Link to={mediaDetailsPath} onClick={handleCardClick}>
       <div>
         <div
           className="relative rounded shadow-lg transform transition duration-300 hover:scale-105 hover:border-solid hover:border-2 hover:border-white "
@@ -34,10 +41,8 @@ const MediaCard = ({ id, poster_path, title, name,  release_date, first_air_date
         </div>
       </div>
     </Link>
-
   );
 };
 
 export default MediaCard;
-
 

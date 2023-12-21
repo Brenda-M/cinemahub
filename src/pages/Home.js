@@ -51,8 +51,6 @@ const Home = () => {
     slidesToScroll: 1,
     dots: false,
     centerMode: true,
-    // nextArrow: <NextArrow />,
-    // prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1200,
@@ -73,7 +71,7 @@ const Home = () => {
         },
       },
       {
-        breakpoint: 576,
+        breakpoint: 468,
         settings: {
           slidesToShow: 2,
         },
@@ -81,7 +79,7 @@ const Home = () => {
       {
         breakpoint: 375,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
         },
       },
     ],
@@ -96,7 +94,7 @@ const Home = () => {
           <h3 className="home-title text-2xl font-bold mb-4 text-white">Trending Today</h3>
           {trendingError && <p className="text-red-500">Error: {trendingError}</p>}
           {trendingMovies && trendingMovies.results && (
-            <Slider {...settings} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <Slider {...settings}>
             {trendingMovies.results.map((movie) => (
                 <div key={movie.id} className="p-2">
                   <HomeCard {...movie} />
@@ -114,7 +112,7 @@ const Home = () => {
           {topRatedTv && topRatedTv.results ? (
             <Slider {...settings}>
               {topRatedTv.results.map((show) => (
-                <div key={show.id} className="md:w-1/4 sm:w-1/2 w-full p-2">
+                <div key={show.id} >
                   <HomeCard {...show} />
                 </div>
               ))}
@@ -131,7 +129,7 @@ const Home = () => {
           {popularTv && popularTv.results ? (
             <Slider {...settings}>
               {popularTv.results.map((show) => (
-                <div key={show.id} className="md:w-1/4 sm:w-1/2 w-full p-2">
+                <div key={show.id}>
                   <HomeCard {...show} />
                 </div>
               ))}
@@ -148,7 +146,7 @@ const Home = () => {
           {onTheAirTv && onTheAirTv.results ? (
             <Slider {...settings}>
               {onTheAirTv.results.map((show) => (
-                <div key={show.id} className="md:w-1/4 sm:w-1/2 w-full p-2">
+                <div key={show.id}>
                   <HomeCard {...show} />
                 </div>
               ))}
@@ -165,7 +163,7 @@ const Home = () => {
           {airingTodayTv && airingTodayTv.results ? (
             <Slider {...settings}>
               {airingTodayTv.results.map((show) => (
-                <div key={show.id} className="md:w-1/4 sm:w-1/2 w-full p-2">
+                <div key={show.id}>
                   <HomeCard {...show} />
                 </div>
               ))}
@@ -182,7 +180,7 @@ const Home = () => {
           {nowPlayingMovies && nowPlayingMovies.results ? (
             <Slider {...settings}>
               {nowPlayingMovies.results.map((movie) => (
-                <div key={movie.id} className="md:w-1/4 sm:w-1/2 w-full p-2">
+                <div key={movie.id}>
                   <HomeCard {...movie} />
                 </div>
               ))}
@@ -199,7 +197,7 @@ const Home = () => {
           {popularMovies && popularMovies.results ? (
             <Slider {...settings}>
               {popularMovies.results.map((movie) => (
-                <div key={movie.id} className="md:w-1/4 sm:w-1/2 w-full p-2">
+                <div key={movie.id}>
                   <HomeCard {...movie} />
                 </div>
               ))}
@@ -216,7 +214,7 @@ const Home = () => {
           {topRatedMovies && topRatedMovies.results ? (
             <Slider {...settings}>
               {topRatedMovies.results.map((movie) => (
-                <div key={movie.id} className="md:w-1/4 sm:w-1/2 w-full p-2">
+                <div key={movie.id}>
                   <HomeCard {...movie} />
                 </div>
               ))}
@@ -233,7 +231,7 @@ const Home = () => {
           {upcomingMovies && upcomingMovies.results ? (
             <Slider {...settings}>
               {upcomingMovies.results.map((movie) => (
-                <div key={movie.id} className="md:w-1/4 sm:w-1/2 w-full p-2">
+                <div key={movie.id}>
                   <HomeCard {...movie} />
                 </div>
               ))}
