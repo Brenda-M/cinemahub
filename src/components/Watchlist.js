@@ -5,7 +5,7 @@ import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 
 
 
-const Watchlist = ({id}) => {
+const Watchlist = ({itemId}) => {
   const [isWatchList, setWatchList] = useState(false)
 
   useEffect(() => {
@@ -13,18 +13,18 @@ const Watchlist = ({id}) => {
 
     if(storedWatchList){
       const watchlist = JSON.parse(storedWatchList)
-      setWatchList(watchlist.includes(id))
+      setWatchList(watchlist.includes(itemId))
     }
-  }, [id])
+  }, [itemId])
 
   const toggleWatchList = () => {
     const storedWatchList = localStorage.getItem('watchlist')
     let watchlist = storedWatchList ? JSON.parse(storedWatchList) : []
 
     if (isWatchList){
-      watchlist = watchlist.filter((id) => id !== id)
+      watchlist = watchlist.filter((id) => id !== itemId)
     } else {
-      watchlist.push(id)
+      watchlist.push(itemId)
     }
 
     localStorage.setItem('watchlist', JSON.stringify(watchlist))
